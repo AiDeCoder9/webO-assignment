@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d2dae5;
+  padding: 0.5rem 1.5rem;
+  height: 3rem;
+  &-img {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #232323;
+    border-radius: 0.25rem;
+  }
+  &-btn {
+    @include rfs(14px);
+    font-weight: 500;
+    color: #232323;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    background-color: unset;
+    svg {
+      margin-right: 0.25rem;
+    }
+    &:hover {
+      color: $primary;
+    }
+    &:before {
+      content: '';
+      display: block;
+      width: 2px;
+      height: 100%;
+      background-color: $border-color;
+      margin-left: 0.625rem;
+      margin-right: 0.625rem;
+    }
+  }
+  .favorite {
+    background-color: unset;
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 0.25rem;
+    }
+    &:hover {
+      color: $primary;
+      border-color: $primary;
+    }
+  }
+}

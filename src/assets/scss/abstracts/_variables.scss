@@ -1,0 +1,57 @@
+:root {
+  --appbar-width: 3.5rem;
+  --sidebar-width: 16.5rem;
+  --sidebar-open-width: 14.875rem;
+  --app-panel-width: 30rem;
+  --header-height: 4rem;
+  --heading-line-height: 1.2;
+  --body-line-height: 1.4;
+  --article-line-height: 1.58;
+  --modal-overlay-width: 360px;
+  --modal-overlay-size-lg: 680px;
+  --app-max-width: 85.375rem;
+}
+
+$primary: #1e83f7;
+$secondary: #ffac1c;
+$info: #eaf3ff;
+$dark: #24252a;
+$border-color: #d2dae5;
+
+// base font family
+$font-family-base: 'Manrope', sans-serif;
+
+//form elements
+$input-padding-y: 0.25rem;
+$input-padding-x: 0.5rem;
+
+$input-font-size: 0.875rem;
+$input-color: #5e6c84;
+$input-bg: #fff;
+$input-border-width: 1px;
+$input-border-radius: 0.25rem;
+$input-border-color: $border-color;
+$input-line-height: 1.5;
+$input-btn-line-height: $input-line-height;
+// $line-height-sm: 1.4;
+$input-height: ($input-font-size) + ($input-padding-y * 2) - 2;
+
+//Button
+$btn-padding-y-xs: 0.25rem;
+$btn-padding-x-xs: 0.5rem;
+$btn-font-size-xs: 0.75rem;
+$btn-line-height-xs: 1.4;
+$btn-border-radius-xs: 0.125rem;
+// $btn-border-radius-sm: 2px;
+$btn-border-radius: $input-border-radius;
+$btn-line-height: $input-line-height;
+$btn-font-size: $input-font-size;
+$btn-padding-y: $input-padding-y;
+$btn-padding-x: $input-padding-x;
+
+$input-placeholder-color: #5e6c84;
+$form-group-margin-bottom: 1rem;
+$input-box-shadow: inset 0 1px 1px rgba(#000, 0.075);
+$input-focus-box-shadow: none;
+
+$grid-gutter-width: 1.5rem;

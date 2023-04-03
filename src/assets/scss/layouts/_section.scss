@@ -1,0 +1,18 @@
+.filter {
+  &-container {
+    display: flex;
+    padding: 1rem 1.5rem;
+    justify-content: space-between;
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
+  }
+}
+
+.align {
+  display: flex;
+  &-center {
+    align-items: center;
+  }
+}

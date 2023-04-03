@@ -1,0 +1,58 @@
+{
+    "gitSemanticCommit.scopeTemplate": "",
+    "gitSemanticCommit.types": [
+        {
+            "type": "dev:build",
+            "description": "Development changes related to the build system"
+        },
+        {
+            "type": "release",
+            "description": "Release changes related to production"
+        },
+        {
+            "type": "feature",
+            "description": "Feature changes related to development"
+        },
+        {
+            "type": "component",
+            "description": "Component changes related to development"
+        },
+        {
+            "type": "style",
+            "description": "Style changes related to development"
+        },
+        {
+            "type": "fix",
+            "description": "Changes related to development"
+        },
+        {
+            "type": "hotfix",
+            "description": "Quick changes related to release"
+        },
+        {
+            "type": "refactor",
+            "description": "Code changes related to development"
+        }
+    ],
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}

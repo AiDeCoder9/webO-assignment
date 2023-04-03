@@ -1,0 +1,15 @@
+.scrollable {
+  @include scrollable();
+  transition: all 0.3s ease-out;
+}
+
+//dropdown
+
+.dropdown-menu-right {
+  right: 100%;
+  left: unset !important;
+}
+
+.progress {
+  height: 0.25rem;
+}

@@ -1,0 +1,24 @@
+{
+  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
+  "employees": [
+    {
+      "name": "sajan",
+      "middleName": "",
+      "surname": "",
+      "dob": "1995-02-22",
+      "gender": "Male",
+      "address": "Bhotebahal",
+      "mobile": "982388812",
+      "email": "sajan@gmail.com",
+      "workStartAt": "09:00",
+      "workEndAt": "06:00",
+      "position": "Senior Engineer",
+      "team": null,
+      "role": "Lead",
+      "billableHours": 40,
+      "profileImage": null
+    }
+  ],
+  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "profile": { "name": "typicode" }
+}

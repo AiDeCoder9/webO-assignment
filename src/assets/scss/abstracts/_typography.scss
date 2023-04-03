@@ -1,0 +1,113 @@
+// Heading Tags and Classes
+
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 0;
+}
+
+@mixin h1 {
+  @include rfs(2.488rem); //39.81px
+}
+@mixin h2 {
+  @include rfs(2.074rem); //33.18px
+}
+@mixin h3 {
+  @include rfs(1.728rem); //27.65px
+}
+@mixin h4 {
+  @include rfs(1.44rem); //23.04px
+}
+@mixin h5 {
+  @include rfs(1.25rem); //20px
+}
+@mixin h6 {
+  @include rfs(1rem); //16px
+}
+@mixin des {
+  @include rfs(0.875rem); //14px
+}
+@mixin small {
+  @include rfs(0.857rem); //12px
+}
+h1,
+.h1 {
+  @include rfs(2.488rem); //39.81px
+  margin: 0;
+}
+h2,
+.h2 {
+  @include rfs(2.074rem); //33.18px
+  margin: 0;
+}
+h3,
+.h3 {
+  @include rfs(1.728rem); //27.65px
+  margin: 0;
+}
+
+h4,
+.h4 {
+  @include rfs(1.44rem); //23.04px
+  margin: 0;
+}
+h5,
+.h5 {
+  @include rfs(1.125rem); //19.20px
+  margin: 0;
+}
+h6,
+.h6 {
+  @include rfs(1rem); //16px
+  margin: 0;
+}
+
+p,
+.des {
+  @include rfs(0.875rem); //14px
+  margin: 0;
+}
+small,
+.small {
+  @include rfs(0.75rem); //12px
+}
+
+// Font weight
+.font-regular {
+  font-weight: 400;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-muted {
+  opacity: 0.6;
+}
+
+label {
+  margin-bottom: 0.625rem;
+  @include rfs(14px);
+  color: $dark;
+  font-weight: 500;
+}
+
+.font-weight-medium {
+  font-weight: 500;
+}
+
+.title {
+  @include rfs(24px);
+  line-height: 1.75rem;
+}

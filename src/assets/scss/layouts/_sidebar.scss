@@ -1,0 +1,11 @@
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100%;
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+  &.collapsed {
+    width: 0;
+    padding: 0;
+    transform: translateX(calc(-1 * var(--sidebar-width)));
+  }
+}
