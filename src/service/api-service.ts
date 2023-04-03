@@ -24,9 +24,9 @@ export default async function performApiAction<TData = unknown>(
 
   // Check for path variables in controllername
   const sanitizedApiDetails = sanitizeController(apiDetails, pathVariables);
-
+  let responseData: any;
   try {
-    const responseData = await initApiRequest<TData>(
+    responseData = await initApiRequest<TData>(
       sanitizedApiDetails,
       requestData,
       requestMethod || sanitizedApiDetails.requestMethod || 'GET',
@@ -36,7 +36,8 @@ export default async function performApiAction<TData = unknown>(
 
     return responseData as CustomResponse<TData>;
   } catch (customThrownError) {
-    console.log(customThrownError);
-    return customThrownError as CustomResponse<TData>;
+    const errorData = customThrownError as ResponseError;
+    throw new Error(errorData?.message);
   }
+  return responseData as CustomResponse<TData>;
 }

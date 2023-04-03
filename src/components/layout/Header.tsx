@@ -11,7 +11,7 @@ export default function Header() {
         </div>
         <Link className="header-btn" to={routePaths.dashboard}>
           <BsArrowLeft />
-          Choose another category
+          Back
         </Link>
       </div>
     </header>

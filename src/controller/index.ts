@@ -2,59 +2,34 @@ import { RequestBodyType, RequestMethod } from '@/utils/enum';
 
 const apiDetails = {
   getEmployeeList: {
-    controllerName: 'races',
-    queryKeyName: 'GET_DRAGON_RACES_LIST',
+    controllerName: 'employees',
+    queryKeyName: 'GET_EMPLOYEE_LIST',
     requestBodyType: RequestBodyType.NOAUTH,
     requestMethod: RequestMethod.GET
   },
   getEmployeeDetail: {
-    controllerName: 'races',
-    queryKeyName: 'GET_DRAGON_RACES_LIST_1',
+    controllerName: 'employees/{id}',
+    queryKeyName: 'GET_EMPLOYEE_DETAIL',
     requestBodyType: RequestBodyType.NOAUTH,
     requestMethod: RequestMethod.GET
   },
-  getDragonRaces: {
-    controllerName: 'races',
-    queryKeyName: 'GET_DRAGON_RACES_LIST',
+  createEmployee: {
+    controllerName: 'employees',
+    queryKeyName: 'CREATE_EMPLOYEE',
     requestBodyType: RequestBodyType.NOAUTH,
-    requestMethod: RequestMethod.GET
+    requestMethod: RequestMethod.POST
   },
-
-  getSpellList: {
-    controllerName: 'spells',
-    queryKeyName: 'GET_SPELLS_LIST',
+  updateEmployee: {
+    controllerName: 'employees/{id}',
+    queryKeyName: 'UPDATE_EMPLOYEE',
     requestBodyType: RequestBodyType.NOAUTH,
-    requestMethod: RequestMethod.GET
+    requestMethod: RequestMethod.PUT
   },
-  getSpellDetail: {
-    controllerName: 'spells/{index}',
-    queryKeyName: 'GET_SPELLS_DETAIL',
+  deleteEmployee: {
+    controllerName: 'employee',
+    queryKeyName: 'DELETE_EMPLOYEE',
     requestBodyType: RequestBodyType.NOAUTH,
-    requestMethod: RequestMethod.GET
-  },
-  getMonsterList: {
-    controllerName: 'monsters',
-    queryKeyName: 'GET_MONSTERS_LIST',
-    requestBodyType: RequestBodyType.NOAUTH,
-    requestMethod: RequestMethod.GET
-  },
-  getMonsterDetail: {
-    controllerName: 'monsters/{index}',
-    queryKeyName: 'GET_MONSTERS_DETAIL',
-    requestBodyType: RequestBodyType.NOAUTH,
-    requestMethod: RequestMethod.GET
-  },
-  getRacesList: {
-    controllerName: 'races',
-    queryKeyName: 'GET_RACES_LIST',
-    requestBodyType: RequestBodyType.NOAUTH,
-    requestMethod: RequestMethod.GET
-  },
-  getRacesDetail: {
-    controllerName: 'races/{index}',
-    queryKeyName: 'GET_RACES_DETAIL',
-    requestBodyType: RequestBodyType.NOAUTH,
-    requestMethod: RequestMethod.GET
+    requestMethod: RequestMethod.DELETE
   }
 };
 

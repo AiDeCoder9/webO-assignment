@@ -1,24 +1,48 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "employees": [
+  "posts": [
     {
-      "name": "sajan",
-      "middleName": "",
-      "surname": "",
-      "dob": "1995-02-22",
-      "gender": "Male",
-      "address": "Bhotebahal",
-      "mobile": "982388812",
-      "email": "sajan@gmail.com",
-      "workStartAt": "09:00",
-      "workEndAt": "06:00",
-      "position": "Senior Engineer",
-      "team": null,
-      "role": "Lead",
-      "billableHours": 40,
-      "profileImage": null
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
     }
   ],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" }
+  "employees": [
+    {
+      "name": "rajan",
+      "middleName": "",
+      "surname": "NEPALI",
+      "dob": "2023-04-02T18:15:00.000Z",
+      "gender": {
+        "label": "Male",
+        "value": 0
+      },
+      "address": "Bhotebahal",
+      "mobile": "9837771887",
+      "email": "sajan.nepali@infodevelopers.com.np",
+      "workStartAt": "2023-04-03T07:15:00.702Z",
+      "workEndAt": "2023-04-03T07:45:00.991Z",
+      "team": {
+        "label": "Male",
+        "value": 0
+      },
+      "role": {
+        "label": "Lead",
+        "value": "lead"
+      },
+      "billableHours": 10,
+      "profileImage": null,
+      "isBillable": true,
+      "id": "18ef8e46-9493-430a-be70-76c6a17cd377"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

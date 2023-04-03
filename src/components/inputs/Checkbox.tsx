@@ -4,11 +4,11 @@ interface CheckboxProps extends InputProps {
   label?: string;
 }
 export default function Checkbox(props: CheckboxProps) {
-  const { label, ...args } = props;
+  const { label, checked, ...args } = props;
   return (
     <div>
       <Input {...args} type="checkbox" />
-      <Label check>{label}</Label>
+      <Label check={checked}>{label}</Label>
     </div>
   );
 }

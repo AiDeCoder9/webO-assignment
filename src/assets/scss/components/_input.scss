@@ -53,8 +53,23 @@
 }
 
 .form {
+  &-divider {
+    border-bottom: 2px solid #c3c1bf;
+    padding-bottom: 0.875rem;
+    margin-bottom: 1.875rem;
+  }
+  &-footer {
+    border-top: 1px solid $border-color;
+    padding: 1rem 1.5rem;
+    text-align: right;
+  }
   &-control {
     background-color: #f1f1f1;
+  }
+  &-check {
+    &-input {
+      margin-right: 0.5rem;
+    }
   }
   &-error {
     &_message {

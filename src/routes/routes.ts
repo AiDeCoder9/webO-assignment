@@ -10,6 +10,7 @@ export const root = '/';
 export const routePaths = {
   dashboard: root,
   employee: root + 'employees',
+  employeeUpdate: root + 'employees/:id',
   team: root + 'team'
 };
 
@@ -24,6 +25,10 @@ const routes: RouteProperties[] = [
       },
       {
         path: routePaths.employee,
+        element: Employee
+      },
+      {
+        path: routePaths.employeeUpdate,
         element: Employee
       }
     ]

@@ -111,3 +111,7 @@ label {
   @include rfs(24px);
   line-height: 1.75rem;
 }
+.heading {
+  color: $dark;
+  margin-bottom: 1.5rem;
+}

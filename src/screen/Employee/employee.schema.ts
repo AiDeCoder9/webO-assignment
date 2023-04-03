@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export const employeeValidationSchema = yup.object({
+export const employeeValidationSchema = yup.object().shape({
   name: yup
     .string()
     .required('First Name is Required')
@@ -22,7 +22,7 @@ export const employeeValidationSchema = yup.object({
 
   gender: yup.object().required('Gender is required'),
   team: yup.object().nullable(),
-  role: yup.object().required('Role is required'),
+  role: yup.object().required('Job Position is required'),
   dob: yup.string().required('Birth Date is required'),
   address: yup
     .string()
@@ -35,7 +35,15 @@ export const employeeValidationSchema = yup.object({
     .required('Mobile No. is required')
     .length(10, 'Mobile No. must be of 10 digit')
     .matches(/(?:\(?\+977\)?)?[9][6-9]\d{8}|01[-]?[0-9]{7}/, 'Enter valid mobile no.'),
-  email: yup.string().required('Email is required').email('Enter valid email')
+  email: yup.string().required('Email is required').email('Enter valid email'),
+  workStartAt: yup.string().required('Starting time is required'),
+  workEndAt: yup.string().required('End time is required'),
+  isBillable: yup.boolean(),
+
+  billableHours: yup.number().when('isBillable', {
+    is: true,
+    then: () => yup.number().min(10, 'Minimum 10hr').required('Billable Hours is required')
+  })
 });
 
 export const employeeInitialValue: IEmployeeValues = {
@@ -49,9 +57,9 @@ export const employeeInitialValue: IEmployeeValues = {
   email: '',
   workStartAt: '',
   workEndAt: '',
-  position: null,
   team: null,
   role: null,
   billableHours: 0,
-  profileImage: null
+  profileImage: null,
+  isBillable: false
 };

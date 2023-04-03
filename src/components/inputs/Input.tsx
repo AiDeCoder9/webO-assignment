@@ -16,7 +16,6 @@ export default function Input(props: InputProps) {
       <input
         {...args}
         id={id}
-        type="text"
         className={classNames('form-control', { background: background, error: hasError })}
       />
     </div>
