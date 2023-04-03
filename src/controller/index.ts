@@ -26,7 +26,37 @@ const apiDetails = {
     requestMethod: RequestMethod.PUT
   },
   deleteEmployee: {
-    controllerName: 'employee',
+    controllerName: 'employees/{id}',
+    queryKeyName: 'DELETE_EMPLOYEE',
+    requestBodyType: RequestBodyType.NOAUTH,
+    requestMethod: RequestMethod.DELETE
+  },
+  getTeamList: {
+    controllerName: 'teams',
+    queryKeyName: 'GET_TEAM_LIST',
+    requestBodyType: RequestBodyType.NOAUTH,
+    requestMethod: RequestMethod.GET
+  },
+  getTeamDetail: {
+    controllerName: 'teams/{id}',
+    queryKeyName: 'GET_TEAM_DETAIL',
+    requestBodyType: RequestBodyType.NOAUTH,
+    requestMethod: RequestMethod.GET
+  },
+  createTeam: {
+    controllerName: 'teams',
+    queryKeyName: 'CREATE_TEAM',
+    requestBodyType: RequestBodyType.NOAUTH,
+    requestMethod: RequestMethod.POST
+  },
+  updateTeam: {
+    controllerName: 'teams/{id}',
+    queryKeyName: 'UPDATE_TEAM',
+    requestBodyType: RequestBodyType.NOAUTH,
+    requestMethod: RequestMethod.PUT
+  },
+  deleteTeam: {
+    controllerName: 'teams/{id}',
     queryKeyName: 'DELETE_EMPLOYEE',
     requestBodyType: RequestBodyType.NOAUTH,
     requestMethod: RequestMethod.DELETE

@@ -7,7 +7,7 @@ export default function Checkbox(props: CheckboxProps) {
   const { label, checked, ...args } = props;
   return (
     <div>
-      <Input {...args} type="checkbox" />
+      <Input {...args} type="checkbox" checked={checked} />
       <Label check={checked}>{label}</Label>
     </div>
   );

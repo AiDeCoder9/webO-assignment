@@ -24,7 +24,14 @@ interface BasicResponse {
 type ValPrimitive = string | number | boolean;
 
 interface IData {
-  index: string;
   name: string;
   url: string;
+  index: string;
+}
+
+interface OptionType<T = any>
+  // eslint-disable-next-line
+  extends GenericObj<any> {
+  label: string;
+  value: T;
 }

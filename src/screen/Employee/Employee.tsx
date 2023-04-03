@@ -35,13 +35,19 @@ export default function Employee() {
     validationSchema: employeeValidationSchema,
     onSubmit: async (values, { resetForm }) => {
       console.log(values);
-      const requestData: IEmployeeRequestData = { ...values };
-      console.log(requestData);
-      const response = await employeeCreator(requestData);
+      if (values.gender && values.role) {
+        const requestData: IEmployeeRequestData = {
+          ...values,
+          gender: values.gender,
+          role: values.role
+        };
+        console.log(requestData);
+        const response = await employeeCreator(requestData);
 
-      if (response.status === 200) {
-        resetForm();
-        navigate(routePaths.dashboard);
+        if (response.status === 200 || 201) {
+          resetForm();
+          navigate(routePaths.dashboard);
+        }
       }
     }
   });
@@ -231,7 +237,7 @@ export default function Employee() {
                   <div className="col-lg-4 mb-3">
                     <Select
                       options={GENDER_TYPE}
-                      value={values.team}
+                      value={values.team ?? null}
                       label="Team"
                       onBlur={handleBlur('team')}
                       onChange={(value) => setFieldValue('team', value)}
@@ -251,7 +257,6 @@ export default function Employee() {
                   <div className="col-lg-4">
                     <Checkbox
                       checked={values.isBillable}
-                      defaultChecked={values.isBillable}
                       label="This user is billable"
                       onChange={handleChange('isBillable')}
                     />

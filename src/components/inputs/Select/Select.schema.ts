@@ -10,12 +10,6 @@ import React from 'react';
 import { Option } from 'react-select/src/filters';
 
 // eslint-disable-next-line
-export interface OptionType<T = any>
-  // eslint-disable-next-line
-  extends GenericObj<any> {
-  label: string;
-  value: T;
-}
 
 export const selectAllOptionsValue = {
   label: 'Select All',

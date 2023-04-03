@@ -1,4 +1,4 @@
-import { OptionType, selectAllOptionsValue } from './Select.schema';
+import { selectAllOptionsValue } from './Select.schema';
 import { components, IndicatorProps, OptionProps, ValueContainerProps } from 'react-select';
 
 import { BiCaretDown } from 'react-icons/bi';

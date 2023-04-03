@@ -1,12 +1,7 @@
 import React, { useMemo } from 'react';
 import RSelect, { ActionMeta, OptionsType, Styles, ValueType } from 'react-select';
 import { Primitive } from 'type-fest';
-import {
-  deSelectAllOptionsValue,
-  OptionType,
-  selectAllOptionsValue,
-  SelectProps
-} from './Select.schema';
+import { deSelectAllOptionsValue, selectAllOptionsValue, SelectProps } from './Select.schema';
 import {
   CheckboxOption,
   ClearIndicator,

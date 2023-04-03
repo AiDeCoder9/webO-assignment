@@ -1,4 +1,4 @@
-import { OptionType, selectAllOptionsValue, selectMockData, SelectProps } from '../Select.schema';
+import { selectAllOptionsValue, selectMockData, SelectProps } from '../Select.schema';
 import Select from '../Select';
 import { act, fireEvent, render } from '@testing-library/react';
 

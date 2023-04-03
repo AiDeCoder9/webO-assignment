@@ -2,6 +2,7 @@ import Layout from '@/screen/Layout';
 import { lazy } from 'react';
 const Dashboard = lazy(() => import('@/screen/Dashboard/Dashboard'));
 const Employee = lazy(() => import('@/screen/Employee/Employee'));
+const Team = lazy(() => import('@/screen/Team/Team'));
 
 import { RouteProperties } from './index';
 
@@ -11,7 +12,8 @@ export const routePaths = {
   dashboard: root,
   employee: root + 'employees',
   employeeUpdate: root + 'employees/:id',
-  team: root + 'team'
+  team: root + 'team',
+  teamUpdate: root + 'team/:id'
 };
 
 const routes: RouteProperties[] = [
@@ -30,6 +32,14 @@ const routes: RouteProperties[] = [
       {
         path: routePaths.employeeUpdate,
         element: Employee
+      },
+      {
+        path: routePaths.team,
+        element: Team
+      },
+      {
+        path: routePaths.teamUpdate,
+        element: Team
       }
     ]
   }

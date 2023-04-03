@@ -1,23 +1,23 @@
 import { apiList } from '@/controller';
 import performApiAction from '@/service/api-service';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-const { getEmployeeList, getEmployeeDetail, updateEmployee, createEmployee } = apiList;
+const { getTeamList, getTeamDetail, updateTeam, createTeam } = apiList;
 import { v4 as uuidv4 } from 'uuid';
 import { SuccessToast } from '@/components/feedback/ToastNotifier/ToastNotifier';
-export const useEmployeeList = () => {
-  return useQuery([getEmployeeList.queryKeyName], () => performApiAction<any>(getEmployeeList), {
+export const useTeamList = () => {
+  return useQuery([getTeamList.queryKeyName], () => performApiAction<any>(getTeamList), {
     select: (data) => {
       console.log('before data', data);
-      return data?.data;
+      return data?.data?.results;
     }
   });
 };
 
-export const useEmployeeDetail = (id: string | undefined) => {
+export const useTeamDetail = (id: string | undefined) => {
   return useQuery(
-    [getEmployeeDetail.queryKeyName, id],
+    [getTeamDetail.queryKeyName, id],
     () =>
-      performApiAction<IEmployeeDetail>(getEmployeeDetail, {
+      performApiAction<IEmployeeDetail>(getTeamDetail, {
         pathVariables: {
           id: id ?? ''
         }
@@ -31,26 +31,26 @@ export const useEmployeeDetail = (id: string | undefined) => {
   );
 };
 
-export const useEmployeeCreator = () => {
+export const useTeamCreator = () => {
   const queryClient = useQueryClient();
 
   return useMutation(
     (requestData: IEmployeeRequestData) => {
       if (requestData?.id) {
-        return performApiAction(updateEmployee, {
+        return performApiAction(updateTeam, {
           requestData,
           pathVariables: { id: requestData.id }
         });
       } else {
-        return performApiAction(createEmployee, {
+        return performApiAction(createTeam, {
           requestData: { ...requestData, id: uuidv4() }
         });
       }
     },
     {
       onSuccess: () => {
-        SuccessToast('Employee Detail Saved');
-        queryClient.invalidateQueries(getEmployeeList.queryKeyName); // invalidating cache query and refetching all post
+        SuccessToast('Team Detail Saved');
+        queryClient.invalidateQueries(getTeamList.queryKeyName); // invalidating cache query and refetching all post
       }
     }
   );
