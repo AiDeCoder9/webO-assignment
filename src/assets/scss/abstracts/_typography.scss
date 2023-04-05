@@ -110,8 +110,12 @@ label {
 .title {
   @include rfs(24px);
   line-height: 1.75rem;
+  font-weight: 700;
+  color: $dark;
 }
 .heading {
   color: $dark;
   margin-bottom: 1.5rem;
+  font-weight: 700;
+  @include rfs(18px);
 }

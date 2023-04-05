@@ -5,12 +5,15 @@ const { getEmployeeList, getEmployeeDetail, updateEmployee, createEmployee } = a
 import { v4 as uuidv4 } from 'uuid';
 import { SuccessToast } from '@/components/feedback/ToastNotifier/ToastNotifier';
 export const useEmployeeList = () => {
-  return useQuery([getEmployeeList.queryKeyName], () => performApiAction<any>(getEmployeeList), {
-    select: (data) => {
-      console.log('before data', data);
-      return data?.data;
+  return useQuery(
+    [getEmployeeList.queryKeyName],
+    () => performApiAction<Array<IEmployeeRequestData>>(getEmployeeList),
+    {
+      select: (data) => {
+        return data?.data;
+      }
     }
-  });
+  );
 };
 
 export const useEmployeeDetail = (id: string | undefined) => {

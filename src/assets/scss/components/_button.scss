@@ -1,0 +1,13 @@
+.btn {
+  &-icon {
+    display: flex;
+    align-items: center;
+    color: white;
+    svg {
+      margin-right: 0.25rem;
+    }
+    &:hover {
+      color: white;
+    }
+  }
+}

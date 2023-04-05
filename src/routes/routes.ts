@@ -1,5 +1,6 @@
 import Layout from '@/screen/Layout';
 import { lazy } from 'react';
+
 const Dashboard = lazy(() => import('@/screen/Dashboard/Dashboard'));
 const Employee = lazy(() => import('@/screen/Employee/Employee'));
 const Team = lazy(() => import('@/screen/Team/Team'));
@@ -20,28 +21,35 @@ const routes: RouteProperties[] = [
   {
     path: root,
     element: Layout,
+    name: '',
     children: [
       {
         path: routePaths.dashboard,
-        element: Dashboard
+        element: Dashboard,
+        name: 'Dashboard'
       },
       {
         path: routePaths.employee,
-        element: Employee
+        element: Employee,
+        name: 'Add Employee'
       },
       {
         path: routePaths.employeeUpdate,
-        element: Employee
+        element: Employee,
+        name: 'Edit Employee'
       },
       {
         path: routePaths.team,
-        element: Team
+        element: Team,
+        name: 'Add Team'
       },
       {
         path: routePaths.teamUpdate,
-        element: Team
+        element: Team,
+        name: 'Edit Team'
       }
     ]
   }
 ];
+
 export default routes;

@@ -5,6 +5,7 @@
   "dependencies": {
     "@craco/craco": "^7.0.0",
     "@tanstack/match-sorter-utils": "^8.7.6",
+    "@tanstack/react-table": "^8.8.5",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",

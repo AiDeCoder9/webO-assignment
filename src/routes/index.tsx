@@ -7,6 +7,7 @@ export interface RouteProperties {
   element: React.ComponentType<any>;
   children?: RouteProperties[];
   index?: boolean;
+  name: string;
 }
 
 interface RenderRouteProps extends RouteProperties {

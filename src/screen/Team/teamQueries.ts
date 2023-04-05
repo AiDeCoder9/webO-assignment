@@ -5,12 +5,15 @@ const { getTeamList, getTeamDetail, updateTeam, createTeam } = apiList;
 import { v4 as uuidv4 } from 'uuid';
 import { SuccessToast } from '@/components/feedback/ToastNotifier/ToastNotifier';
 export const useTeamList = () => {
-  return useQuery([getTeamList.queryKeyName], () => performApiAction<any>(getTeamList), {
-    select: (data) => {
-      console.log('before data', data);
-      return data?.data?.results;
+  return useQuery(
+    [getTeamList.queryKeyName],
+    () => performApiAction<Array<ITeamRequestData>>(getTeamList),
+    {
+      select: (data) => {
+        return data?.data;
+      }
     }
-  });
+  );
 };
 
 export const useTeamDetail = (id: string | undefined) => {
@@ -35,7 +38,7 @@ export const useTeamCreator = () => {
   const queryClient = useQueryClient();
 
   return useMutation(
-    (requestData: IEmployeeRequestData) => {
+    (requestData: ITeamRequestData) => {
       if (requestData?.id) {
         return performApiAction(updateTeam, {
           requestData,

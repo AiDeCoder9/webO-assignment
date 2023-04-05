@@ -4,11 +4,14 @@ import Checkbox from '@/components/inputs/Checkbox';
 import EnglishDatePicker from '@/components/inputs/EnglishDatePicker';
 import { Select } from '@/components/inputs/Select';
 import Header from '@/components/layout/Header';
+import BreadCrumb from '@/components/navigation/BreadCrumb';
 import { routePaths } from '@/routes/routes';
 import { GENDER_TYPE, ROLE_TYPE } from '@/utils/constants';
+import { optionTransform } from '@/utils/transformer';
 import { useFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTeamList } from '../Team/teamQueries';
 import { employeeInitialValue, employeeValidationSchema } from './employee.schema';
 import { useEmployeeCreator, useEmployeeDetail } from './employeeQueries';
 
@@ -16,6 +19,7 @@ export default function Employee() {
   const { id } = useParams();
   const { mutateAsync: employeeCreator, isLoading: loading } = useEmployeeCreator();
   const { data: employeeDetail } = useEmployeeDetail(id);
+  const { data: teamList, isLoading: teamLoading } = useTeamList();
 
   const [formData, setFormData] = useState<IEmployeeValues>(employeeInitialValue);
   const navigate = useNavigate();
@@ -34,14 +38,13 @@ export default function Employee() {
     initialValues: formData,
     validationSchema: employeeValidationSchema,
     onSubmit: async (values, { resetForm }) => {
-      console.log(values);
       if (values.gender && values.role) {
         const requestData: IEmployeeRequestData = {
           ...values,
           gender: values.gender,
           role: values.role
         };
-        console.log(requestData);
+
         const response = await employeeCreator(requestData);
 
         if (response.status === 200 || 201) {
@@ -66,10 +69,11 @@ export default function Employee() {
   return (
     <main className="app-main-layout">
       <Header />
+      <BreadCrumb />
       <div className="position-relative flex-grow-1">
         <div className="app-absolute-layout scrollable">
           <div className="container">
-            <h2 className="title py-3">Add Employee</h2>
+            <h2 className="title pb-3">Add Employee</h2>
             <div className="row">
               <div className="col-lg-3">
                 <h5 className="heading">Basic Information</h5>
@@ -236,9 +240,11 @@ export default function Employee() {
                   </div>
                   <div className="col-lg-4 mb-3">
                     <Select
-                      options={GENDER_TYPE}
-                      value={values.team ?? null}
+                      options={optionTransform(teamList ?? [])}
+                      isLoading={teamLoading}
+                      value={values.team}
                       label="Team"
+                      placeholder="Choose Team"
                       onBlur={handleBlur('team')}
                       onChange={(value) => setFieldValue('team', value)}
                     />

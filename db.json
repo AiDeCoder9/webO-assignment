@@ -1,11 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
   "employees": [
     {
       "name": "rajan",
@@ -105,13 +98,47 @@
       "profileImage": null,
       "isBillable": true,
       "id": "3f7adb57-dec9-4198-9855-1b7e72a58fac"
+    },
+    {
+      "name": "Ravi",
+      "middleName": "",
+      "surname": "Lama",
+      "dob": "2023-04-03T18:15:00.000Z",
+      "gender": {
+        "label": "Male",
+        "value": 0
+      },
+      "address": "kathmandu",
+      "mobile": "9823633482",
+      "email": "test@gmail.com",
+      "workStartAt": "2023-04-04T15:15:00.311Z",
+      "workEndAt": "2023-04-04T15:45:00.811Z",
+      "team": {
+        "value": "7bb8b38a-dce3-4c2f-8468-c2fef336f56a",
+        "label": "payment"
+      },
+      "role": {
+        "label": "Senior",
+        "value": "Senior"
+      },
+      "billableHours": 100,
+      "profileImage": null,
+      "isBillable": true,
+      "id": "0f6c7c2c-fa03-4679-9738-62d8aaea9a35"
     }
   ],
-  "comments": [
+  "teams": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "payment",
+      "password": "laravue2",
+      "members": [
+        {
+          "value": "c4b8dbfc-8868-4d90-ad0d-cc5c016dc02d",
+          "label": "Elish"
+        }
+      ],
+      "billableHours": 10,
+      "id": "7bb8b38a-dce3-4c2f-8468-c2fef336f56a"
     }
   ],
   "profile": {

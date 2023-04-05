@@ -1,8 +1,8 @@
 import { Button, Input } from '@/components/inputs';
 import Header from '@/components/layout/Header';
 import { useFormik } from 'formik';
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useMemo, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { teamInitialValue, teamValidationSchema } from './team.schema';
 import { useTeamCreator, useTeamDetail } from './teamQueries';
@@ -10,6 +10,7 @@ import ValidationError from '@/components/feedback/ValidationError';
 import { Select } from '@/components/inputs/Select';
 import { useEmployeeList } from '../Employee/employeeQueries';
 import { optionTransform } from '@/utils/transformer';
+import { routePaths } from '@/routes/routes';
 
 export default function Team() {
   const { id } = useParams();
@@ -21,21 +22,42 @@ export default function Team() {
 
   const { data: employeeList, isLoading: employeeLoading } = useEmployeeList();
 
-  console.log(optionTransform(employeeList), employeeList, 'hoola');
+  const navigate = useNavigate();
 
   const form = useFormik({
     enableReinitialize: true,
     initialValues: formData,
     validationSchema: teamValidationSchema,
     onSubmit: async (values, { resetForm }) => {
-      console.log(values);
+      console.log(values, 'check values');
+      if (values.members) {
+        const requestData: ITeamRequestData = { ...values, members: values.members };
+        const response = await teamCreator({ ...requestData, members: values.members });
+        if (response.status === 200 || 201) {
+          resetForm();
+          navigate(routePaths.dashboard);
+        }
+      }
+
       if (false) {
         resetForm();
       }
     }
   });
   const { values, errors, touched, handleChange, handleBlur, handleSubmit, setFieldValue } = form;
-  console.log(employeeList);
+
+  useMemo(() => {
+    if (values.members && employeeList) {
+      const billableHours = values.members.reduce((acc: number, current: OptionType) => {
+        console.log(acc, current);
+        const item = employeeList.find((element) => element.id === current.value)?.billableHours;
+        if (item) return acc + item;
+        return acc + 0;
+      }, 0);
+      setFieldValue('billableHours', billableHours);
+    }
+  }, [values.members, employeeList, setFieldValue]);
+
   return (
     <main className="app-main-layout">
       <Header />
@@ -95,7 +117,6 @@ export default function Team() {
                       placeholder="Choose Members"
                       onBlur={handleBlur('members')}
                       onChange={(value) => {
-                        console.log(value, 'kkkk');
                         setFieldValue('members', value);
                       }}
                     />

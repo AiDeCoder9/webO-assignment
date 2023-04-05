@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import * as yup from 'yup';
 
 export const employeeValidationSchema = yup.object().shape({
@@ -62,4 +63,56 @@ export const employeeInitialValue: IEmployeeValues = {
   billableHours: 0,
   profileImage: null,
   isBillable: false
+};
+
+export const useEmployeeColumn = () => {
+  return useMemo(() => {
+    const column = [
+      {
+        header: () => <span>ID</span>,
+        accessor: 'id',
+        accessorFn: (row: IEmployeeRequestData) => row.id,
+        id: 'id'
+      },
+      {
+        header: () => <span>Full Name</span>,
+        accessor: 'name',
+        accessorFn: (row: IEmployeeRequestData) => `${row.name} ${row.middleName} ${row.surname}`,
+        id: 'name'
+      },
+      {
+        header: () => <span>Current Team</span>,
+        accessor: 'team',
+        accessorFn: (row: IEmployeeRequestData) => row.team?.label ?? 'Not Assigned',
+        id: 'team'
+      },
+      {
+        header: () => <span>Mobile No.</span>,
+        accessor: 'mobile',
+        accessorFn: (row: IEmployeeRequestData) => row.mobile,
+        id: 'mobile'
+      },
+      {
+        header: () => <span>Email Address</span>,
+        accessor: 'email',
+        accessorFn: (row: IEmployeeRequestData) => row.email,
+        id: 'email'
+      },
+      {
+        header: () => <span>Designation</span>,
+        accessor: 'role',
+        accessorFn: (row: IEmployeeRequestData) => row.role.value,
+        id: 'role'
+      },
+      {
+        header: () => <span>Billable Hours</span>,
+        accessor: 'billableHours',
+        accessorFn: (row: IEmployeeRequestData) =>
+          row.isBillable ? `${row.billableHours} hours/week` : 'NA',
+        id: 'billableHours'
+      }
+    ];
+
+    return column;
+  }, []);
 };
