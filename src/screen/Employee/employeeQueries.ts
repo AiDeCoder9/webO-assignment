@@ -1,9 +1,10 @@
 import { apiList } from '@/controller';
 import performApiAction from '@/service/api-service';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-const { getEmployeeList, getEmployeeDetail, updateEmployee, createEmployee } = apiList;
 import { v4 as uuidv4 } from 'uuid';
 import { SuccessToast } from '@/components/feedback/ToastNotifier/ToastNotifier';
+const { getEmployeeList, getEmployeeDetail, updateEmployee, createEmployee, deleteEmployee } =
+  apiList;
 export const useEmployeeList = () => {
   return useQuery(
     [getEmployeeList.queryKeyName],
@@ -53,6 +54,23 @@ export const useEmployeeCreator = () => {
     {
       onSuccess: () => {
         SuccessToast('Employee Detail Saved');
+        queryClient.invalidateQueries(getEmployeeList.queryKeyName); // invalidating cache query and refetching all post
+      }
+    }
+  );
+};
+
+export const useEmployeeRemove = () => {
+  const queryClient = useQueryClient();
+  return useMutation(
+    (id: string) => {
+      return performApiAction(deleteEmployee, {
+        pathVariables: { id }
+      });
+    },
+    {
+      onSuccess: () => {
+        SuccessToast('Employee removed Successfully');
         queryClient.invalidateQueries(getEmployeeList.queryKeyName); // invalidating cache query and refetching all post
       }
     }

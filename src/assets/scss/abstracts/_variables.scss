@@ -13,7 +13,7 @@
 }
 
 $primary: #1e83f7;
-$secondary: #ffac1c;
+$secondary: #f7921e;
 $info: #eaf3ff;
 $dark: #24252a;
 $border-color: #d2dae5;
@@ -38,9 +38,13 @@ $input-btn-line-height: $input-line-height;
 $input-height: ($input-font-size) + ($input-padding-y * 2) - 2;
 
 //Button
+$btn-padding-y: 0.25rem;
 $btn-padding-y-xs: 0.25rem;
 $btn-padding-x-xs: 0.5rem;
+$btn-padding-x-lg: 0.5rem;
+$btn-padding-y-lg: 0.5rem;
 $btn-font-size-xs: 0.75rem;
+$btn-font-size-lg: 1rem;
 $btn-line-height-xs: 1.4;
 $btn-border-radius-xs: 0.125rem;
 // $btn-border-radius-sm: 2px;

@@ -1,4 +1,3 @@
-import Header from '@/components/layout/Header';
 import React, { useState } from 'react';
 import { useEmployeeList } from '../Employee/employeeQueries';
 import { FaUsers, FaUsersCog } from 'react-icons/fa';
@@ -23,7 +22,6 @@ export default function Dashboard() {
 
   return (
     <main className="app-main-layout">
-      <Header />
       <div className="position-relative flex-grow-1">
         <div className="app-absolute-layout scrollable">
           <div className="container">

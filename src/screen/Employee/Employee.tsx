@@ -25,13 +25,15 @@ export default function Employee() {
   const navigate = useNavigate();
   useEffect(() => {
     if (employeeDetail) {
+      console.log(employeeDetail, 'em');
       setFormData({
+        ...formData,
         ...employeeDetail,
         middleName: employeeDetail.middleName ?? '',
         isBillable: employeeDetail.billableHours > 0 ? true : false
       });
     }
-  }, [employeeDetail]);
+  }, [employeeDetail, id]);
 
   const form = useFormik({
     enableReinitialize: true,
@@ -73,7 +75,7 @@ export default function Employee() {
       <div className="position-relative flex-grow-1">
         <div className="app-absolute-layout scrollable">
           <div className="container">
-            <h2 className="title pb-3">Add Employee</h2>
+            <h2 className="title pb-3">{id ? 'Edit' : 'Add'} Employee</h2>
             <div className="row">
               <div className="col-lg-3">
                 <h5 className="heading">Basic Information</h5>
@@ -287,7 +289,7 @@ export default function Employee() {
       </div>
       <div className="form-footer">
         <Button color="secondary" loading={loading} onClick={() => handleSubmit()}>
-          Save
+          {id ? 'Update' : 'Save'}
         </Button>
       </div>
     </main>

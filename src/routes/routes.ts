@@ -29,14 +29,14 @@ const routes: RouteProperties[] = [
         name: 'Dashboard'
       },
       {
-        path: routePaths.employee,
-        element: Employee,
-        name: 'Add Employee'
-      },
-      {
         path: routePaths.employeeUpdate,
         element: Employee,
         name: 'Edit Employee'
+      },
+      {
+        path: routePaths.employee,
+        element: Employee,
+        name: 'Add Employee'
       },
       {
         path: routePaths.team,

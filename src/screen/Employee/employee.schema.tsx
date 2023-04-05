@@ -1,5 +1,12 @@
+import { Button } from '@/components/inputs';
+import { routePaths } from '@/routes/routes';
+import { sanitizeURL } from '@/utils/sanitize-url';
+import { Row } from '@tanstack/react-table';
 import { useMemo } from 'react';
+import { AiFillDelete, AiFillEdit, AiFillEye } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
+import { useEmployeeRemove } from './employeeQueries';
 
 export const employeeValidationSchema = yup.object().shape({
   name: yup
@@ -65,7 +72,13 @@ export const employeeInitialValue: IEmployeeValues = {
   isBillable: false
 };
 
-export const useEmployeeColumn = () => {
+export const useEmployeeColumn = (actions: TableAction<IEmployeeRequestData>) => {
+  const navigate = useNavigate();
+  const { view } = actions;
+  const { mutateAsync: removeEmployee, isLoading } = useEmployeeRemove();
+  const handleDelete = async (id: string | undefined) => {
+    if (id) await removeEmployee(id);
+  };
   return useMemo(() => {
     const column = [
       {
@@ -83,7 +96,7 @@ export const useEmployeeColumn = () => {
       {
         header: () => <span>Current Team</span>,
         accessor: 'team',
-        accessorFn: (row: IEmployeeRequestData) => row.team?.label ?? 'Not Assigned',
+        accessorFn: (row: IEmployeeRequestData) => row.team?.label ?? 'Available',
         id: 'team'
       },
       {
@@ -92,16 +105,13 @@ export const useEmployeeColumn = () => {
         accessorFn: (row: IEmployeeRequestData) => row.mobile,
         id: 'mobile'
       },
-      {
-        header: () => <span>Email Address</span>,
-        accessor: 'email',
-        accessorFn: (row: IEmployeeRequestData) => row.email,
-        id: 'email'
-      },
+
       {
         header: () => <span>Designation</span>,
-        accessor: 'role',
-        accessorFn: (row: IEmployeeRequestData) => row.role.value,
+        accessorKey: 'role',
+        cell: ({ row }: { row: Row<IEmployeeRequestData> }) => {
+          return <span>{row.original.role.label}</span>;
+        },
         id: 'role'
       },
       {
@@ -110,9 +120,36 @@ export const useEmployeeColumn = () => {
         accessorFn: (row: IEmployeeRequestData) =>
           row.isBillable ? `${row.billableHours} hours/week` : 'NA',
         id: 'billableHours'
+      },
+      {
+        header: () => <span>Actions</span>,
+        accessorKey: 'actions',
+        cell: ({ row }: { row: Row<IEmployeeRequestData> }) => {
+          return (
+            <div className="table-actions">
+              <Button className="view" onClick={() => view(row.original)}>
+                <AiFillEye size={16} />
+              </Button>
+              <Button
+                className="mx-3 edit"
+                onClick={() =>
+                  row.original.id &&
+                  navigate(sanitizeURL(routePaths.employeeUpdate, { id: row.original.id }))
+                }>
+                <AiFillEdit size={16} />
+              </Button>
+              <Button
+                loading={isLoading}
+                onClick={() => handleDelete(row.original.id)}
+                className="delete">
+                <AiFillDelete size={16} />
+              </Button>
+            </div>
+          );
+        }
       }
     ];
 
     return column;
-  }, []);
+  }, [navigate]);
 };

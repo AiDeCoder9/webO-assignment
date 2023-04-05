@@ -1,34 +1,7 @@
 {
   "employees": [
     {
-      "name": "rajan",
-      "middleName": "",
-      "surname": "NEPALI",
-      "dob": "2023-04-02T18:15:00.000Z",
-      "gender": {
-        "label": "Male",
-        "value": 0
-      },
-      "address": "Bhotebahal",
-      "mobile": "9837771887",
-      "email": "sajan.nepali@infodevelopers.com.np",
-      "workStartAt": "2023-04-03T07:15:00.702Z",
-      "workEndAt": "2023-04-03T07:45:00.991Z",
-      "team": {
-        "label": "Male",
-        "value": 0
-      },
-      "role": {
-        "label": "Lead",
-        "value": "lead"
-      },
-      "billableHours": 10,
-      "profileImage": null,
-      "isBillable": true,
-      "id": "18ef8e46-9493-430a-be70-76c6a17cd377"
-    },
-    {
-      "name": "Elish",
+      "name": "Elishaa",
       "middleName": "",
       "surname": "Bista",
       "dob": "2023-04-02T18:15:00.000Z",
@@ -41,7 +14,10 @@
       "email": "elisha@gmail.com",
       "workStartAt": "2023-04-03T11:15:00.281Z",
       "workEndAt": "2023-04-03T12:15:00.617Z",
-      "team": null,
+      "team": {
+        "value": "056393eb-8145-4fdc-a65b-990e4217e50c",
+        "label": "Vipor Sword"
+      },
       "role": {
         "label": "Lead",
         "value": "lead"
@@ -52,56 +28,8 @@
       "id": "c4b8dbfc-8868-4d90-ad0d-cc5c016dc02d"
     },
     {
-      "name": "Elish",
-      "middleName": "",
-      "surname": "Bista",
-      "dob": "2023-04-02T18:15:00.000Z",
-      "gender": {
-        "label": "Male",
-        "value": 0
-      },
-      "address": "Bhotebahal",
-      "mobile": "9823477717",
-      "email": "elisha@gmail.com",
-      "workStartAt": "2023-04-03T11:15:00.281Z",
-      "workEndAt": "2023-04-03T12:15:00.617Z",
-      "team": null,
-      "role": {
-        "label": "Lead",
-        "value": "lead"
-      },
-      "billableHours": 10,
-      "profileImage": null,
-      "isBillable": true,
-      "id": "988c5114-c66e-477f-a7e6-b137f87535f5"
-    },
-    {
-      "name": "Elish",
-      "middleName": "",
-      "surname": "Bista",
-      "dob": "2023-04-02T18:15:00.000Z",
-      "gender": {
-        "label": "Male",
-        "value": 0
-      },
-      "address": "Bhotebahal",
-      "mobile": "9823477717",
-      "email": "elisha@gmail.com",
-      "workStartAt": "2023-04-03T11:15:00.281Z",
-      "workEndAt": "2023-04-03T12:15:00.617Z",
-      "team": null,
-      "role": {
-        "label": "Lead",
-        "value": "lead"
-      },
-      "billableHours": 10,
-      "profileImage": null,
-      "isBillable": true,
-      "id": "3f7adb57-dec9-4198-9855-1b7e72a58fac"
-    },
-    {
       "name": "Ravi",
-      "middleName": "",
+      "middleName": "Kaji",
       "surname": "Lama",
       "dob": "2023-04-03T18:15:00.000Z",
       "gender": {
@@ -114,8 +42,8 @@
       "workStartAt": "2023-04-04T15:15:00.311Z",
       "workEndAt": "2023-04-04T15:45:00.811Z",
       "team": {
-        "value": "7bb8b38a-dce3-4c2f-8468-c2fef336f56a",
-        "label": "payment"
+        "value": "056393eb-8145-4fdc-a65b-990e4217e50c",
+        "label": "Vipor Sword"
       },
       "role": {
         "label": "Senior",
@@ -129,16 +57,32 @@
   ],
   "teams": [
     {
-      "name": "payment",
-      "password": "laravue2",
+      "name": "Vipor Sword",
+      "password": "pbkdf2_sha256$260000$BablPGQENyeWTx3JsiqYtf$Gsa53B5YXa8BxM6qRpK+JCQCna32thHsfqe1TJWn+xI=",
       "members": [
+        {
+          "value": "18ef8e46-9493-430a-be70-76c6a17cd377",
+          "label": "rajan"
+        },
         {
           "value": "c4b8dbfc-8868-4d90-ad0d-cc5c016dc02d",
           "label": "Elish"
+        },
+        {
+          "value": "988c5114-c66e-477f-a7e6-b137f87535f5",
+          "label": "Elish"
+        },
+        {
+          "value": "3f7adb57-dec9-4198-9855-1b7e72a58fac",
+          "label": "Elish"
+        },
+        {
+          "value": "0f6c7c2c-fa03-4679-9738-62d8aaea9a35",
+          "label": "Ravi"
         }
       ],
-      "billableHours": 10,
-      "id": "7bb8b38a-dce3-4c2f-8468-c2fef336f56a"
+      "billableHours": 110,
+      "id": "056393eb-8145-4fdc-a65b-990e4217e50c"
     }
   ],
   "profile": {

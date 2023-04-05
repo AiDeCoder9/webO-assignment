@@ -1,6 +1,6 @@
-interface OverlayProps {
+interface OverlayProps<T> {
   children?: React.ReactNode;
-  toggle: () => void;
+  toggle: (data?: T) => void;
   isOpen?: boolean;
   title: string;
 }

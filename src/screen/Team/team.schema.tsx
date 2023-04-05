@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import { AiFillDelete, AiFillEdit, AiFillEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
+import { useTeamRemove } from './teamQueries';
 export const teamValidationSchema = yup.object().shape({
   name: yup
     .string()
@@ -31,8 +32,13 @@ export const teamInitialValue: ITeamValues = {
   billableHours: 0
 };
 
-export const useTeamColumn = () => {
+export const useTeamColumn = (actions: TableAction<ITeamRequestData>) => {
   const navigate = useNavigate();
+  const { view } = actions;
+  const { mutateAsync: removeTeam, isLoading } = useTeamRemove();
+  const handleDelete = async (id: string | undefined) => {
+    if (id) await removeTeam(id);
+  };
   return useMemo(() => {
     const column = [
       {
@@ -68,24 +74,21 @@ export const useTeamColumn = () => {
         cell: ({ row }: { row: Row<ITeamRequestData> }) => {
           return (
             <div className="table-actions">
-              <Button
-                className="view"
-                onClick={() =>
-                  row.original.id &&
-                  navigate(sanitizeURL(routePaths.employeeUpdate, { id: row.original.id }))
-                }>
+              <Button className="view" onClick={() => view(row.original)}>
                 <AiFillEye size={16} />
               </Button>
-              <Button className="mx-3 edit">
-                <AiFillEdit
-                  size={16}
-                  onClick={() =>
-                    row.original.id &&
-                    navigate(sanitizeURL(routePaths.employeeUpdate, { id: row.original.id }))
-                  }
-                />
+              <Button
+                className="mx-3 edit"
+                onClick={() =>
+                  row.original.id &&
+                  navigate(sanitizeURL(routePaths.teamUpdate, { id: row.original.id }))
+                }>
+                <AiFillEdit size={16} />
               </Button>
-              <Button className="delete">
+              <Button
+                loading={isLoading}
+                onClick={() => handleDelete(row.original.id)}
+                className="delete">
                 <AiFillDelete size={16} />
               </Button>
             </div>

@@ -1,0 +1,36 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: var(--modal-overlay-width);
+  background-color: white;
+  z-index: 1050;
+  transform: translateX(var(--modal-overlay-width));
+  box-shadow: 0px 32px 48px rgba(0, 0, 0, 0.04), 0px 16px 32px rgba(0, 0, 0, 0.08),
+    0px 4px 8px rgba(0, 0, 0, 0.08);
+  transition: all ease-in-out 0.2s;
+  &.show {
+    right: 0;
+    transform: translateX(0);
+  }
+
+  &-header {
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $border-color;
+
+    .title {
+      @include rfs(16px);
+      font-weight: 500;
+    }
+  }
+  &-body {
+    padding: 0 1rem 1rem;
+    height: calc(100% - 4.567rem);
+    overflow-y: auto;
+    @include scrollable;
+  }
+}

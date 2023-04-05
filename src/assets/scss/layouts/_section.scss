@@ -16,3 +16,40 @@
     align-items: center;
   }
 }
+
+//list styles
+.list-01 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    position: relative;
+    @include rfs(14px);
+    padding-left: calc(8px + 4px);
+    color: $dark;
+    line-height: 21px;
+    text-transform: capitalize;
+    &:not(:last-child) {
+      margin-bottom: 0.75rem;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: $input-color;
+      display: block;
+      @include media-breakpoint-down(md) {
+        top: 0.75rem;
+      }
+    }
+  }
+}
+
+.divider {
+  border: 1px solid #c3c1bf;
+}

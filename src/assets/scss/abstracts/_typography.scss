@@ -119,3 +119,20 @@ label {
   font-weight: 700;
   @include rfs(18px);
 }
+
+.detail {
+  .textbox {
+    margin-top: 1.5rem;
+    p {
+      @include rfs(16px);
+      color: $input-color;
+      font-weight: 600;
+      margin-bottom: 0.375rem;
+    }
+    span {
+      display: block;
+      @include rfs(16px);
+      color: $dark;
+    }
+  }
+}

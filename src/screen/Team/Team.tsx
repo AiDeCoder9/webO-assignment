@@ -1,7 +1,7 @@
 import { Button, Input } from '@/components/inputs';
 import Header from '@/components/layout/Header';
 import { useFormik } from 'formik';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { teamInitialValue, teamValidationSchema } from './team.schema';
@@ -18,11 +18,18 @@ export default function Team() {
   const { data: teamDetail } = useTeamDetail(id);
 
   const [formData, setFormData] = useState<ITeamValues>(teamInitialValue);
-  console.log(teamDetail, teamCreator, setFormData);
 
   const { data: employeeList, isLoading: employeeLoading } = useEmployeeList();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (teamDetail) {
+      setFormData({
+        ...teamDetail
+      });
+    }
+  }, [teamDetail]);
 
   const form = useFormik({
     enableReinitialize: true,
@@ -88,6 +95,7 @@ export default function Team() {
                       name="password"
                       value={values.password}
                       label="Team Password"
+                      type={'password'}
                       placeholder="*********"
                       onChange={handleChange('password')}
                       onBlur={handleBlur('password')}

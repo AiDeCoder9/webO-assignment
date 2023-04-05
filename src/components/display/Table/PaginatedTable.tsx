@@ -113,7 +113,7 @@ const Table = <TData extends RowData>({
             setGlobalFilter(e.target.value);
           }}
           value={globalFilter ?? ''}
-          placeholder="Search all columns..."
+          placeholder="Search"
         />
         {action}
       </div>

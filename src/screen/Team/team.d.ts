@@ -12,3 +12,15 @@ interface ITeamRequestData {
   members: Array<OptionType>;
   billableHours: number;
 }
+
+interface ITeamDetail {
+  id: string;
+  name: string;
+  password: string;
+  members: Array<OptionType>;
+  billableHours: number;
+}
+
+interface TableAction<T> {
+  view: (data?: T) => void;
+}

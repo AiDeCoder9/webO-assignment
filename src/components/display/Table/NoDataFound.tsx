@@ -6,5 +6,5 @@ interface INoDataFound {
 export const TableNoDataFound: React.FC<INoDataFound> = ({
   label = 'There are no records to display'
 }) => {
-  return <div className="d-flex align-items-center justify-content-center">{label}</div>;
+  return <div>{label}</div>;
 };
