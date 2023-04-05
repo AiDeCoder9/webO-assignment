@@ -1,7 +1,7 @@
 import { Button, Input } from '@/components/inputs';
 import Header from '@/components/layout/Header';
 import { useFormik } from 'formik';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { teamInitialValue, teamValidationSchema } from './team.schema';
@@ -11,11 +11,14 @@ import { Select } from '@/components/inputs/Select';
 import { useEmployeeList } from '../Employee/employeeQueries';
 import { optionTransform } from '@/utils/transformer';
 import { routePaths } from '@/routes/routes';
+import QRCode from 'react-qr-code';
+import { IoMdDownload } from 'react-icons/io';
 
 export default function Team() {
   const { id } = useParams();
   const { mutateAsync: teamCreator, isLoading: loading } = useTeamCreator();
   const { data: teamDetail } = useTeamDetail(id);
+  const qrRef = useRef<any>(null);
 
   const [formData, setFormData] = useState<ITeamValues>(teamInitialValue);
 
@@ -52,6 +55,19 @@ export default function Team() {
     }
   });
   const { values, errors, touched, handleChange, handleBlur, handleSubmit, setFieldValue } = form;
+
+  const downloadQRCode = (): void => {
+    const svg = qrRef.current;
+    if (!svg) return;
+
+    const dataUrl = `data:image/svg+xml;base64,${btoa(svg.outerHTML)}`;
+    const link = document.createElement('a');
+    link.download = 'qrcode.svg';
+    link.href = dataUrl;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   useMemo(() => {
     if (values.members && employeeList) {
@@ -105,7 +121,6 @@ export default function Team() {
                       <ValidationError name="password" errors={errors} touched={touched} />
                     </div>
                   </div>
-                  <div className="form-divider"></div>
                 </div>
               </div>
 
@@ -146,6 +161,30 @@ export default function Team() {
                       <ValidationError name="billableHours" errors={errors} touched={touched} />
                     </div>
                   </div>
+                  <div className="form-divider"></div>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-lg-3">
+                  <h5 className="heading">QR Code</h5>
+                </div>
+                <div className="col-lg-9">
+                  <div className="d-flex align-items-center">
+                    <div>
+                      <QRCode
+                        ref={qrRef}
+                        value={`Team '${values.name}' password is '${values.password}'`}
+                        size={120}
+                      />
+                    </div>
+
+                    <Button outline color="success" className="ml-3" onClick={downloadQRCode}>
+                      <IoMdDownload className="mr-1" size={16} />
+                      Download
+                    </Button>
+                  </div>
+
                   <div className="form-divider"></div>
                 </div>
               </div>
