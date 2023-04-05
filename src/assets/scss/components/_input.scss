@@ -53,6 +53,11 @@
 }
 
 .form {
+  &-container {
+    border-radius: 0.25rem;
+    padding: 1.5rem;
+    background-color: white;
+  }
   &-divider {
     border-bottom: 2px solid #c3c1bf;
     padding-bottom: 0.875rem;

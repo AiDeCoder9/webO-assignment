@@ -1,6 +1,7 @@
 import { Button } from '@/components/inputs';
 import { routePaths } from '@/routes/routes';
 import { sanitizeURL } from '@/utils/sanitize-url';
+import { formatTeamMembers } from '@/utils/transformer';
 import { Row } from '@tanstack/react-table';
 import { useMemo } from 'react';
 import { AiFillDelete, AiFillEdit, AiFillEye } from 'react-icons/ai';
@@ -49,7 +50,7 @@ export const useTeamColumn = (actions: TableAction<ITeamRequestData>) => {
       },
 
       {
-        header: () => <span>Current Team</span>,
+        header: () => <span>Team Name</span>,
         accessor: 'team',
         accessorFn: (row: ITeamRequestData) => row.name,
         id: 'team'
@@ -57,7 +58,7 @@ export const useTeamColumn = (actions: TableAction<ITeamRequestData>) => {
       {
         header: () => <span>Members</span>,
         accessor: 'members',
-        accessorFn: (row: ITeamRequestData) => row.members.map((item) => item.label),
+        accessorFn: (row: ITeamRequestData) => formatTeamMembers(row.members),
         id: 'members'
       },
 

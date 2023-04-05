@@ -53,7 +53,8 @@ export const useTeamCreator = () => {
     {
       onSuccess: () => {
         SuccessToast('Team Detail Saved');
-        queryClient.invalidateQueries(getTeamList.queryKeyName); // invalidating cache query and refetching all post
+        queryClient.invalidateQueries([getTeamList.queryKeyName]);
+        queryClient.invalidateQueries([getTeamDetail.queryKeyName]);
       }
     }
   );

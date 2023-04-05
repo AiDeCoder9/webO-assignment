@@ -44,7 +44,7 @@ const AppProvider = ({ children }: AppProviderProps) => {
       <QueryClientProvider client={queryClient}>
         <Router>{children}</Router>
 
-        {false && <ReactQueryDevtools position="bottom-right" />}
+        {true && <ReactQueryDevtools position="bottom-right" />}
       </QueryClientProvider>
 
       <ToastNotificationContainer

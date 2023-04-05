@@ -12,3 +12,19 @@ export const optionTransform = (dataArray: Array<any>) => {
   });
   return returnData;
 };
+
+export const formatTeamMembers = (members: Array<OptionType>) => {
+  const names = members.map((member) => member.label);
+  if (names.length < 2) {
+    return names.join(', ');
+  } else if (names.length === 2) {
+    return names.join(' & ');
+  } else {
+    const firstTwoNames = names.slice(0, 2).join(' & ');
+    const remainingNamesCount = names.length - 2;
+    const remainingNamesMsg = `and ${remainingNamesCount} other${
+      remainingNamesCount > 1 ? 's' : ''
+    }`;
+    return `${firstTwoNames}, ${remainingNamesMsg}`;
+  }
+};

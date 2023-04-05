@@ -54,7 +54,8 @@ export const useEmployeeCreator = () => {
     {
       onSuccess: () => {
         SuccessToast('Employee Detail Saved');
-        queryClient.invalidateQueries(getEmployeeList.queryKeyName); // invalidating cache query and refetching all post
+        queryClient.invalidateQueries(getEmployeeList.queryKeyName);
+        queryClient.invalidateQueries(getEmployeeDetail.queryKeyName);
       }
     }
   );

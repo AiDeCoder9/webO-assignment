@@ -72,80 +72,82 @@ export default function Team() {
         <div className="app-absolute-layout scrollable">
           <div className="container">
             <h2 className="title py-3">Add Team</h2>
-            <div className="row">
-              <div className="col-lg-3">
-                <h5 className="heading">Basic Information</h5>
-              </div>
-              <div className="col-lg-9">
-                <div className="row">
-                  <div className="col-lg-4 mb-3">
-                    <Input
-                      value={values.name}
-                      name="name"
-                      label="Team Name"
-                      placeholder="Enter Name"
-                      onChange={handleChange('name')}
-                      onBlur={handleBlur('name')}
-                      hasError={!!errors.name && touched.name}
-                    />
-                    <ValidationError name="name" errors={errors} touched={touched} />
-                  </div>
-                  <div className="col-lg-4 mb-3">
-                    <Input
-                      name="password"
-                      value={values.password}
-                      label="Team Password"
-                      type={'password'}
-                      placeholder="*********"
-                      onChange={handleChange('password')}
-                      onBlur={handleBlur('password')}
-                      hasError={!!errors.password && touched.password}
-                    />
-                    <ValidationError name="password" errors={errors} touched={touched} />
-                  </div>
+            <div className="form-container">
+              <div className="row">
+                <div className="col-lg-3">
+                  <h5 className="heading">Basic Information</h5>
                 </div>
-                <div className="form-divider"></div>
+                <div className="col-lg-9">
+                  <div className="row">
+                    <div className="col-lg-4 mb-3">
+                      <Input
+                        value={values.name}
+                        name="name"
+                        label="Team Name"
+                        placeholder="Enter Name"
+                        onChange={handleChange('name')}
+                        onBlur={handleBlur('name')}
+                        hasError={!!errors.name && touched.name}
+                      />
+                      <ValidationError name="name" errors={errors} touched={touched} />
+                    </div>
+                    <div className="col-lg-4 mb-3">
+                      <Input
+                        name="password"
+                        value={values.password}
+                        label="Team Password"
+                        type={'password'}
+                        placeholder="*********"
+                        onChange={handleChange('password')}
+                        onBlur={handleBlur('password')}
+                        hasError={!!errors.password && touched.password}
+                      />
+                      <ValidationError name="password" errors={errors} touched={touched} />
+                    </div>
+                  </div>
+                  <div className="form-divider"></div>
+                </div>
               </div>
-            </div>
 
-            <div className="row">
-              <div className="col-lg-3">
-                <h5 className="heading">Members</h5>
-              </div>
-              <div className="col-lg-9">
-                <div className="row">
-                  <div className="col-lg-4 mb-3">
-                    <Select
-                      options={optionTransform(employeeList ?? [])}
-                      isMulti
-                      isMultiCheckbox
-                      isLoading={employeeLoading}
-                      value={values.members}
-                      label="Team Members"
-                      placeholder="Choose Members"
-                      onBlur={handleBlur('members')}
-                      onChange={(value) => {
-                        setFieldValue('members', value);
-                      }}
-                    />
-                    <ValidationError name="members" errors={errors} touched={touched} />
-                  </div>
-                  <div className="col-lg-4 mb-3">
-                    <Input
-                      value={values.billableHours}
-                      name="billableHours"
-                      label="Billable Hours"
-                      readOnly
-                      placeholder="Enter Billable Hours"
-                      onChange={handleChange('billableHours')}
-                      onBlur={handleBlur('billableHours')}
-                      type="number"
-                      hasError={!!errors.billableHours && touched.billableHours}
-                    />
-                    <ValidationError name="billableHours" errors={errors} touched={touched} />
-                  </div>
+              <div className="row">
+                <div className="col-lg-3">
+                  <h5 className="heading">Members</h5>
                 </div>
-                <div className="form-divider"></div>
+                <div className="col-lg-9">
+                  <div className="row">
+                    <div className="col-lg-4 mb-3">
+                      <Select
+                        options={optionTransform(employeeList ?? [])}
+                        isMulti
+                        isMultiCheckbox
+                        isLoading={employeeLoading}
+                        value={values.members}
+                        label="Team Members"
+                        placeholder="Choose Members"
+                        onBlur={handleBlur('members')}
+                        onChange={(value) => {
+                          setFieldValue('members', value);
+                        }}
+                      />
+                      <ValidationError name="members" errors={errors} touched={touched} />
+                    </div>
+                    <div className="col-lg-4 mb-3">
+                      <Input
+                        value={values.billableHours}
+                        name="billableHours"
+                        label="Billable Hours"
+                        readOnly
+                        placeholder="Enter Billable Hours"
+                        onChange={handleChange('billableHours')}
+                        onBlur={handleBlur('billableHours')}
+                        type="number"
+                        hasError={!!errors.billableHours && touched.billableHours}
+                      />
+                      <ValidationError name="billableHours" errors={errors} touched={touched} />
+                    </div>
+                  </div>
+                  <div className="form-divider"></div>
+                </div>
               </div>
             </div>
           </div>
