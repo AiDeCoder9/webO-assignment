@@ -3,7 +3,7 @@
 <h1 align="center">Hi 👋, I'm Sajan Nepali</h1>
 <h3 align="center">Self motivated developer from Nepal</h3>
 
-- 🔭 I’m currently working on **The 5th Edition Dungeons and Dragons API**
+- 🔭 I’m currently working on **The User Management Application**
 
 - 🌱 I’m currently learning **Node JS**
 
@@ -20,22 +20,19 @@
 
 # The 5th Edition Dungeons and Dragons Application
 
-In this application you can view details of spells, monsters, and races. You can also add them to your favorite item.
+In this application you can manage employee, team. Change their details and also add or remove them.
 
 
 ## Available Screens
 
 | Screen             | Detail                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Landing | Contains options |
-| List Page | Contains list of selected item |
-| Favorite | Will contain your added favorites item |
+| Dashboard | Contains list of employees and team also their counts |
+| Team | You can add or update team members from here |
+| Employee | You can add or remove employee from here |
 
 
 
-## Demo
-
-https://prismatic-cajeta-be324d.netlify.app/
 
 ## How to run
 In the project directory, you can run to start the application:
@@ -44,6 +41,11 @@ In the project directory, you can run to start the application:
 ### `yarn start`
 
 Runs the app in the development mode.\
+Open [http://localhost:3600]
+
+### `node server`
+
+Don't forget to run the server.
 Open [http://localhost:3600]
 
 ### `yarn test`
