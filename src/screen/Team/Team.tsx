@@ -1,7 +1,7 @@
 import { Button, Input } from '@/components/inputs';
 import Header from '@/components/layout/Header';
 import { useFormik } from 'formik';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { teamInitialValue, teamValidationSchema } from './team.schema';
@@ -27,12 +27,12 @@ export default function Team() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (teamDetail) {
+    if (teamDetail && id) {
       setFormData({
         ...teamDetail
       });
     }
-  }, [teamDetail]);
+  }, [teamDetail, id]);
 
   const form = useFormik({
     enableReinitialize: true,
@@ -69,7 +69,7 @@ export default function Team() {
     document.body.removeChild(link);
   };
 
-  useMemo(() => {
+  useEffect(() => {
     if (values.members && employeeList) {
       const billableHours = values.members.reduce((acc: number, current: OptionType) => {
         console.log(acc, current);

@@ -84,7 +84,9 @@ export const useEmployeeColumn = (actions: TableAction<IEmployeeRequestData>) =>
       {
         header: () => <span>ID</span>,
         accessor: 'id',
-        accessorFn: (row: IEmployeeRequestData) => row.id,
+        cell: ({ row }: { row: Row<IEmployeeRequestData> }) => {
+          return <div className="text-truncate">{row.original.id}</div>;
+        },
         id: 'id'
       },
       {

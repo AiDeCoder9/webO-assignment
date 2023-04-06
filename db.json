@@ -3,7 +3,7 @@
     {
       "name": "Sajan",
       "middleName": "",
-      "surname": "Nepalffff",
+      "surname": "Nepal",
       "dob": "2023-04-04T18:15:00.000Z",
       "gender": {
         "label": "Male",
@@ -76,9 +76,9 @@
         "label": "Junior",
         "value": "junior"
       },
-      "billableHours": 0,
+      "billableHours": 200,
       "profileImage": null,
-      "isBillable": false,
+      "isBillable": true,
       "id": "adb7662f-3dae-4bc9-81e9-b5fa32fbec5a"
     },
     {
@@ -103,34 +103,10 @@
         "label": "Lead",
         "value": "lead"
       },
-      "billableHours": 0,
-      "profileImage": null,
-      "isBillable": false,
-      "id": "02fcde06-d9cd-4487-aabc-2197f962500c"
-    },
-    {
-      "name": "Goal",
-      "middleName": "",
-      "surname": "Kick",
-      "dob": "2023-04-04T18:15:00.000Z",
-      "gender": {
-        "label": "Male",
-        "value": 0
-      },
-      "address": "Bhotebahal",
-      "mobile": "9823633482",
-      "email": "sajanproject@gmail.com",
-      "workStartAt": "2023-04-05T14:15:00.412Z",
-      "workEndAt": "2023-04-05T14:45:00.162Z",
-      "team": null,
-      "role": {
-        "label": "Lead",
-        "value": "lead"
-      },
-      "billableHours": 10,
+      "billableHours": 400,
       "profileImage": null,
       "isBillable": true,
-      "id": "3be2d84a-2c18-460d-b817-8509e2c4fd4b"
+      "id": "02fcde06-d9cd-4487-aabc-2197f962500c"
     }
   ],
   "teams": [
@@ -140,7 +116,7 @@
       "members": [
         {
           "value": "044277e6-038d-4c34-9b1d-b651dd346d6b",
-          "label": "Sajan  Nepali"
+          "label": "Sajan  Nepal"
         },
         {
           "value": "6cbb7ad7-57a2-4e48-afb4-54c10c1e8648",
@@ -151,28 +127,12 @@
           "label": "Hari  Karki"
         },
         {
-          "value": "02fcde06-d9cd-4487-aabc-2197f962500c",
-          "label": "Sita  Adhikari"
+          "value": "3be2d84a-2c18-460d-b817-8509e2c4fd4b",
+          "label": "Goal  Kick"
         }
       ],
-      "billableHours": 200,
+      "billableHours": 410,
       "id": "36c0d62d-37d6-4190-ae03-d93d84dc02db"
-    },
-    {
-      "name": "Admin",
-      "password": "admin331",
-      "members": [
-        {
-          "value": "adb7662f-3dae-4bc9-81e9-b5fa32fbec5a",
-          "label": "Hari  Karki"
-        },
-        {
-          "value": "6cbb7ad7-57a2-4e48-afb4-54c10c1e8648",
-          "label": "Ravi  Gautam"
-        }
-      ],
-      "billableHours": 100,
-      "id": "9fe72c19-5f54-4d76-9f70-e8918277325f"
     }
   ],
   "profile": {

@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { FailToast } from '@/components/feedback/ToastNotifier/ToastNotifier';
+import { RequestMethod } from '@/utils/enum';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import initApiRequest from './api-request';
 import { sanitizeController } from './api-util';
@@ -37,6 +39,10 @@ export default async function performApiAction<TData = unknown>(
     return responseData as CustomResponse<TData>;
   } catch (customThrownError) {
     const errorData = customThrownError as ResponseError;
+
+    if (requestMethod !== RequestMethod.GET) {
+      FailToast(`${errorData.message} .Please make sure your server is connected`);
+    }
     throw new Error(errorData?.message);
   }
   return responseData as CustomResponse<TData>;

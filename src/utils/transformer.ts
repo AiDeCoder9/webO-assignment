@@ -18,13 +18,11 @@ export const formatTeamMembers = (members: Array<OptionType>) => {
   if (names.length < 2) {
     return names.join(', ');
   } else if (names.length === 2) {
-    return names.join(' & ');
+    return names.join(' , ');
   } else {
-    const firstTwoNames = names.slice(0, 2).join(' & ');
+    const firstTwoNames = names.slice(0, 2).join(' , ');
     const remainingNamesCount = names.length - 2;
-    const remainingNamesMsg = `and ${remainingNamesCount} other${
-      remainingNamesCount > 1 ? 's' : ''
-    }`;
+    const remainingNamesMsg = `& ${remainingNamesCount} more`;
     return `${firstTwoNames}, ${remainingNamesMsg}`;
   }
 };

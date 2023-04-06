@@ -15,6 +15,7 @@ export default function Input(props: InputProps) {
       <label htmlFor={id}>{label}</label>
       <input
         {...args}
+        autoComplete={'off'}
         id={id}
         className={classNames('form-control', { background: background, error: hasError })}
       />

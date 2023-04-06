@@ -121,7 +121,7 @@ const Table = <TData extends RowData>({
       <div className="table">
         <table>
           <TableHeader headerGroup={table.getHeaderGroups} />
-          {isNoDataFound && <TableNoDataFound />}
+          {isNoDataFound && <TableNoDataFound columnsLength={columns.length} />}
           {isLoading && <div>Loading ....</div>}
           {!isNoDataFound && (
             <TableBody

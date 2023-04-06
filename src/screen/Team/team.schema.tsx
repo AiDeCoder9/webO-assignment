@@ -5,6 +5,7 @@ import { formatTeamMembers } from '@/utils/transformer';
 import { Row } from '@tanstack/react-table';
 import { useMemo } from 'react';
 import { AiFillDelete, AiFillEdit, AiFillEye } from 'react-icons/ai';
+import QRCode from 'react-qr-code';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { useTeamRemove } from './teamQueries';
@@ -43,18 +44,25 @@ export const useTeamColumn = (actions: TableAction<ITeamRequestData>) => {
   return useMemo(() => {
     const column = [
       {
-        header: () => <span>ID</span>,
-        accessor: 'id',
-        accessorFn: (row: ITeamRequestData) => row.id,
-        id: 'id'
-      },
-
-      {
         header: () => <span>Team Name</span>,
         accessor: 'team',
         accessorFn: (row: ITeamRequestData) => row.name,
         id: 'team'
       },
+      {
+        header: () => <span>QR Code</span>,
+        accessor: 'password',
+        cell: ({ row }: { row: Row<ITeamRequestData> }) => {
+          return (
+            <QRCode
+              size={40}
+              value={`Team '${row.original.name}' password is '${row.original.password}'`}
+            />
+          );
+        },
+        id: 'password'
+      },
+
       {
         header: () => <span>Members</span>,
         accessor: 'members',
@@ -63,7 +71,7 @@ export const useTeamColumn = (actions: TableAction<ITeamRequestData>) => {
       },
 
       {
-        header: () => <span>Billable Hours</span>,
+        header: () => <span>Total Man Hours</span>,
         accessor: 'billableHours',
         accessorFn: (row: ITeamRequestData) =>
           row.billableHours ? `${row.billableHours} hours/week` : 'NA',

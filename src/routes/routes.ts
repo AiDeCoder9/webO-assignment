@@ -12,9 +12,9 @@ export const root = '/';
 export const routePaths = {
   dashboard: root,
   employee: root + 'employees',
-  employeeUpdate: root + 'employees/:id',
+  employeeUpdate: root + 'employees/:id/edit',
   team: root + 'team',
-  teamUpdate: root + 'team/:id'
+  teamUpdate: root + 'team/:id/edit'
 };
 
 const routes: RouteProperties[] = [
@@ -28,15 +28,16 @@ const routes: RouteProperties[] = [
         element: Dashboard,
         name: 'Dashboard'
       },
-      {
-        path: routePaths.employeeUpdate,
-        element: Employee,
-        name: 'Edit Employee'
-      },
+
       {
         path: routePaths.employee,
         element: Employee,
         name: 'Add Employee'
+      },
+      {
+        path: routePaths.employeeUpdate,
+        element: Employee,
+        name: 'Edit Employee'
       },
       {
         path: routePaths.team,
